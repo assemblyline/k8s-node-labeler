@@ -3,8 +3,8 @@
 # It appears it takes a while for the pod to incorporate the node name.
 while [ "x$NODE" = "x" ] || [ "$NODE" = "null" ]; do
   sleep 1
-  echo "[$(date)] Pod: $POD_NAME"
   NODE=`curl  -s -f \
+        --insecure \
         --cert   /etc/kubernetes/ssl/worker.pem \
         --key    /etc/kubernetes/ssl/worker-key.pem \
         --cacert /etc/kubernetes/ssl/ca.pem  \
@@ -13,6 +13,7 @@ while [ "x$NODE" = "x" ] || [ "$NODE" = "null" ]; do
 done
 
 curl  -s \
+      --insecure \
       --cert   /etc/kubernetes/ssl/worker.pem \
       --key    /etc/kubernetes/ssl/worker-key.pem \
       --cacert /etc/kubernetes/ssl/ca.pem  \

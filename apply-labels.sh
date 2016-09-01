@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # It appears it takes a while for the pod to incorporate the node name.
 while [ "x$NODE" = "x" ] || [ "$NODE" = "null" ]; do
